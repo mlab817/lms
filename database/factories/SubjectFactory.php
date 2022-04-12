@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Teacher;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -20,6 +21,7 @@ class SubjectFactory extends Factory
         return [
             'name' => $this->faker->name,
             'uuid' => Str::uuid(),
+            'teacher_id' => Teacher::all()->random()->first()->id
         ];
     }
 }

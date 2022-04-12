@@ -14,8 +14,13 @@ class Subject extends Model
         'uuid',
     ];
 
-    public function users()
+    public function lessons()
     {
-        return $this->belongsToMany(User::class,'subject_user');
+        return $this->hasMany(Lesson::class);
+    }
+
+    public function teacher()
+    {
+        return $this->belongsTo(Teacher::class);
     }
 }

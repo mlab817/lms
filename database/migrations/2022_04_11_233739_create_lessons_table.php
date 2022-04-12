@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('subject_user', function (Blueprint $table) {
+        Schema::create('lessons', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('user_id');
             $table->foreignId('subject_id');
-
-            $table->unique(['user_id','subject_id'],'user_subject_index');
+            $table->timestamps();
         });
     }
 
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subject_user');
+        Schema::dropIfExists('lessons');
     }
 };
